@@ -1,0 +1,195 @@
+% This file contains macros that can be called up from connected TeX files
+% It helps to summarise repeated code, e.g. figure insertion (see below).
+
+% insert a centered figure with caption and description
+% parameters 1:filename, 2:title, 3:description and label
+\newcommand{\figuremacro}[3]{
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=1\textwidth]{#1}
+		\caption[#2]{\textbf{#2} #3}
+		\label{#1}
+	\end{figure}
+}
+
+% insert a centered figure with caption and description AND WIDTH
+% parameters 1:filename, 2:title, 3:description and label, 4: textwidth
+% textwidth 1 means as text, 0.5 means half the width of the text
+\newcommand{\figuremacroW}[4]{
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=#4\textwidth]{#1}
+		\caption[#2]{\textbf{#2} #3}
+		\label{#1}
+	\end{figure}
+}
+% --------------jess------- Jacob.modificacion ----------Inicia-----------------------
+
+%jacob.modif  jacob.modificado jacob.agregado
+% insert a centered figure with caption and description AND WIDTH
+% parameters 1:filename, 2:title, 3:description and label, 4: textwidth
+% textwidth 1 means as text, 0.5 means half the width of the text
+\newcommand{\figuremacroJ}[5]{
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=#4\textwidth]{#1}
+		\caption[#2]{\textbf{#2} #3}
+		\label{#5}
+	\end{figure}
+}
+
+\newcommand{\figmacroJ}[5]{
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=#4]{#1}
+		\caption[#2]{\textbf{#2} #3}
+		\label{#5}
+	\end{figure}
+}
+
+
+\newcommand{\figmacroubicJ}[6]{
+	\begin{figure}[#6]
+		\centering
+		\includegraphics[scale=#4]{#1}
+		\caption[#2]{\textbf{#2} #3}
+		\label{#5}
+	\end{figure}
+}
+
+
+%macro para incluir una imagen en posición específica (no tipo float)
+
+\newcommand{\graphicsmacroJ}[5]{
+	\noindent
+	\ \\
+	\begin{minipage}{\textwidth}
+		\centering
+		\includegraphics[scale=#4]{#1}
+		\captionof{figure}[#2]{\textbf{#2} #3} \label{#5}
+	\end{minipage}
+	
+	\ \\
+}
+
+%macro para incluir una imagen en posición específica con un texto junto a ella
+%el texto es la línea 1
+\newcommand{\TgraphicsmacroJ}[6]{
+
+	\noindent
+	\begin{minipage}{\textwidth}
+		#1  \\ \par
+		\centering
+		\includegraphics[scale=#5]{#2}
+	\captionof{figure}[#3]{\textbf{#3} #4} \label{#6}
+	\end{minipage}
+	\ \\
+}
+
+
+%macro para incluir un arreglo con corchetes
+\newcommand{\arjC}[2]{
+	\left[	\begin{array}{#1}
+	#2
+	\end{array}
+	\right]	
+}
+
+
+%macro para incluir una derivada parcial
+\newcommand{\jpar}[2]{
+	\frac{\partial{#1}}{\partial{#2}}
+}
+
+%macro para ecuacion
+
+\newcommand{\jbe}[1]{
+	\begin{equation}
+	#1
+	\end{equation}
+}
+
+
+
+% --------------jess------- Jacob.modificacion ----------Termina-----------------------
+% --------------jess------- Jacob.modificacion ----------Termina-----------------------
+% --------------jess------- Jacob.modificacion ----------Termina-----------------------
+% --------------jess------- Jacob.modificacion ----------Termina-----------------------
+
+
+% inserts a figure with wrapped around text; only suitable for NARROW figs
+% o is for outside on a double paged document; others: l, r, i(inside)
+% text and figure will each be half of the document width
+% note: long captions often crash with adjacent content; take care
+% in general: above 2 macro produce more reliable layout
+\newcommand{\figuremacroN}[3]{
+	\begin{wrapfigure}{o}{0.5\textwidth}
+		\centering
+		\includegraphics[width=0.48\textwidth]{#1}
+		\caption[#2]{{\small\textbf{#2} - #3}}
+		\label{#1}
+	\end{wrapfigure}
+}
+
+% predefined commands by Harish
+\newcommand{\PdfPsText}[2]{
+  \ifpdf
+     #1
+  \else
+     #2
+  \fi
+}
+
+\newcommand{\IncludeGraphicsH}[3]{
+  \PdfPsText{\includegraphics[height=#2]{#1}}{\includegraphics[bb = #3, height=#2]{#1}}
+}
+
+\newcommand{\IncludeGraphicsW}[3]{
+  \PdfPsText{\includegraphics[width=#2]{#1}}{\includegraphics[bb = #3, width=#2]{#1}}
+}
+
+\newcommand{\InsertFig}[3]{
+  \begin{figure}[!htbp]
+    \begin{center}
+      \leavevmode
+      #1
+      \caption{#2}
+      \label{#3}
+    \end{center}
+  \end{figure}
+}
+
+
+%---Macros Muttio---%
+
+%El siguiente macro sirve para darle un cuadro tipo teorema a algun texto
+%utilizado en ejercicios resueltos.
+%Solo debe ponerse el texto dentro del parentesis despues de \cuadtext{}
+
+\newcommand{\cuadtext}[2]{
+    \begin{figure}[htbp]
+    \begin{theo #1}
+    #2
+    \end{theo #1}
+    \end{figure}
+}
+
+%El siguiente macro es utilizado en conjunto con el anterior
+%sirve para agregar imagenes dentro de cuadros de texto
+%notar que es el mismo que \figmacroJ solo que sin el ambiente
+%figure que tiene conflicto al usar el ambiente theo
+
+\newcommand{\figmacroCT}[5]{	
+		\centering
+		\includegraphics[scale=#4]{#1}
+		\caption[#2]{\textbf{#2} #3}
+		\label{#5}
+}
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "~/Documents/LaTeX/CUEDThesisPSnPDF/thesis"
+%%% End: 

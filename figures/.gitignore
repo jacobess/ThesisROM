@@ -1,0 +1,6 @@
+*.log
+*.nlo
+*.aux
+*.gz
+.DS_Store
+

@@ -87,27 +87,20 @@
 }
 
 
-%macro para incluir un arreglo con corchetes
-\newcommand{\arjC}[2]{
-	\left[	\begin{array}{#1}
-	#2
-	\end{array}
-	\right]	
-}
-
+% Arrays
+\newcommand{\jarp}[2]{\left( \begin{array}{#1} #2 \end{array}\right)}
+\newcommand{\jarc}[2]{\left[ \begin{array}{#1} #2 \end{array}\right]}
 
 %macro para incluir una derivada parcial
 \newcommand{\jpar}[2]{
 	\frac{\partial{#1}}{\partial{#2}}
 }
-
-%macro para ecuacion
-
-\newcommand{\jbe}[1]{
-	\begin{equation}
-	#1
-	\end{equation}
+%bold symbols
+\newcommand{\bsym}[1]{
+	\boldsymbol{#1}
 }
+
+
 
 
 

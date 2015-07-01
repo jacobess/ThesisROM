@@ -7,7 +7,7 @@
 % Descomentar el renglon \Debugfalse									
 
 \newif\ifDebug
-\Debugtrue
+\Debugfalse
 
 
 %==============================================================		|| ||
@@ -16,7 +16,8 @@
 \ifDebug %														
 
 	\documentclass[twoside,11pt]{Latex/Classes/PhDthesisPSnPDF_jacob}
-	\usepackage[utf8]{inputenc}						
+	\usepackage[utf8]{inputenc}	
+	\usepackage{setspace}					
 													
 	\import{Latex/Macros/}{MacroFile1}
 	
@@ -26,6 +27,9 @@
 	\mainmatter				
 
     		\graphicspath{{figures/PNG/}{figures/PDF/}{figures/}}		
+		%\doublespacing
+		% or:
+		\onehalfspacing
 %																
 %==============================================================		|| ||
 %==============================================================		|| ||

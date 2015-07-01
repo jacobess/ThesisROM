@@ -466,6 +466,7 @@ requirements for the degree of}}
 \usepackage{verbatim}		% uso de comentarios \begin{comment} \end{comment}
 \usepackage{pstricks}		%											%|
 \usepackage{auto-pst-pdf}	%
+	\usepackage{setspace} % uso para interlineado doble o 1.5; command: \doublespacing \onehalfspacing
 
 
 %usandos en caplitulos calculadoras y excel:    |----
